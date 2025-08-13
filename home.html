@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FarmConnect - Authentication</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <div class="bg-decoration bg-decoration-1"></div>
+        <div class="bg-decoration bg-decoration-2"></div>
+        <div class="bg-decoration bg-decoration-3"></div>
+        <div class="bg-decoration bg-decoration-4"></div>
+    </div>
+
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">🌾</span>
+                <h1 class="logo-text">FarmConnect</h1>
+            </div>
+            <p class="header-subtitle">Empowering farmers with modern tools for sustainable agriculture</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <div class="auth-icon">🌾</div>
+                    <h2 class="auth-title" id="authTitle">Welcome Back!</h2>
+                    <p class="auth-subtitle" id="authSubtitle">Sign in to manage your farm operations</p>
+                </div>
+
+                <form class="auth-form" id="authForm">
+                    <!-- Signup-only fields -->
+                    <div class="signup-fields" id="signupFields">
+                        <div class="form-group">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                <input type="text" id="fullName" name="fullName" class="form-input" placeholder="Enter your full name">
+                            </div>
+                            <span class="error-message" id="fullNameError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                                <input type="tel" id="phone" name="phone" class="form-input" placeholder="Enter your phone number">
+                            </div>
+                            <span class="error-message" id="phoneError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="farmLocation" class="form-label">Farm Location</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <input type="text" id="farmLocation" name="farmLocation" class="form-input" placeholder="City, State or Region">
+                            </div>
+                            <span class="error-message" id="farmLocationError"></span>
+                        </div>
+                    </div>
+
+                    <!-- Common fields -->
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email address" required>
+                        </div>
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="form-label">Password</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <circle cx="12" cy="16" r="1"></circle>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            <input type="password" id="password" name="password" class="form-input" placeholder="Enter your password" required>
+                            <button type="button" class="password-toggle" id="passwordToggle">
+                                <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="error-message" id="passwordError"></span>
+                    </div>
+
+                    <div class="form-group signup-only" id="confirmPasswordGroup">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <circle cx="12" cy="16" r="1"></circle>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            <input type="password" id="confirmPassword" name="confirmPassword" class="form-input" placeholder="Confirm your password">
+                            <button type="button" class="password-toggle" id="confirmPasswordToggle">
+                                <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="error-message" id="confirmPasswordError"></span>
+                    </div>
+
+                    <div class="login-options" id="loginOptions">
+                        <label class="checkbox-wrapper">
+                            <input type="checkbox" id="rememberMe">
+                            <span class="checkbox-text">Remember me</span>
+                        </label>
+                        <button type="button" class="forgot-password">Forgot password?</button>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span class="btn-text" id="btnText">Sign In</span>
+                        <div class="loading-spinner" id="loadingSpinner"></div>
+                    </button>
+                </form>
+
+                <div class="auth-footer">
+                    <p class="toggle-text">
+                        <span id="toggleQuestion">Don't have an account?</span>
+                        <button type="button" class="toggle-btn" id="toggleBtn">Sign Up</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text">© 2025 FarmConnect. Growing together for a sustainable future.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
